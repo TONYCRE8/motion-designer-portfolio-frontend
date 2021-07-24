@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useLayoutEffect} from 'react'
 import gsap, {TimelineLite, Power1} from 'gsap'
 import './../main.css'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
@@ -7,6 +7,7 @@ function CharacterController() {
 
     // Character object
     let character = useRef(null)
+    let shadow = useRef(null)
 
     // Head group
     let GRP_head = useRef(null)
@@ -52,16 +53,29 @@ function CharacterController() {
     // Animation hellfire
 
     var wave = new TimelineLite({delay: .5, duration: .3, repeat: -1, yoyo: true})
+    /* const blink = () => {
+        var blink = new TimelineLite({repeat: -1});
+        blink
+        .to(OBJ_eyesOpen,  {duration: 3, visibility: "visible"}, 0)
+        .to(OBJ_eyesOpen, {duration: .1, delay: 3, visibility: "hidden"}, 0)
+        .to(OBJ_eyesClosed, {duration: .1, delay: 3, visibility: "visible"}, 0)
+        .to(OBJ_eyesOpen, {delay: 3.1, visibility: "visible"}, 0)
+        .to(OBJ_eyesClosed, {delay: 3.1, visibility: "hidden"}, 0)
+    }
+    const waveAnimation = () => {
+        gsap.to(GRP_armRight, {rotation: 10, transformOrigin: "0% center", delay: .3, duration: .4})
+        
+        wave.to(OBJ_forearmRight, {rotation: -70, transformOrigin: "50% left"}, 0)
+    } */
 
-
-    const animator = () => {
+    useLayoutEffect(() => {
         var characterAnim = gsap.timeline({
             duration: 1,
             scrollTrigger: {
                 trigger: "#section1",
                 endTrigger: "#section5",
                 start: "top top",
-                end: "+=6000",
+                end: "+=5000",
                 scrub: 1
             }
         })
@@ -70,14 +84,14 @@ function CharacterController() {
         })
         characterAnim
             .add("slide2", 0)
-            .add("slide2exit", 9.2)
-            .add("slide3", 10)
-            .add("slide3exit", 19.2)
+            .add("slide2exit", 10.9)
+            .add("slide3", 13)
+            .add("slide3exit", 20)
             .add("slide4", 22)
             .add("slide4exit", 28.2)
             .add("slide5", 30)
-            .add("slide5exit", 36.2)
-            .add("slide6", 40)
+            .add("slide5exit", 38.2)
+            //.add("slide6", 40)
 
         // remove all unessential object visibility
         gsap.to([OBJ_eyesClosed, OBJ_eyesHappy, OBJ_mouthOpen, OBJ_mouthTeeth, OBJ_mouthWorry], {duration: 0, css: {visibility: "hidden"}})
@@ -95,6 +109,7 @@ function CharacterController() {
             // Slide 2
                 // Right leg
                 .to(character, {translateY: "+=40", duration: 5}, "slide2")
+                .to(shadow, {translateY: "-=40", duration: 5}, "slide2")
                 .to(GRP_legRight, {duration: 5, transformOrigin: "0% left", rotation: 5}, "slide2")
                 .to(OBJ_lowerLegRight, {duration: 5, transformOrigin: "31% top", rotation: -40}, "slide2")
                 // Foot direction flip (annoyingly complicated)
@@ -122,6 +137,7 @@ function CharacterController() {
                 // Exit
 
                 .to(character, {translateY: "-=40", duration: .5}, "slide2exit")
+                .to(shadow, {translateY: "+=40", duration: .5}, "slide2exit")
                     // Right leg
                 .to(GRP_legRight, {duration: .5, transformOrigin: "0% left", rotation: 0}, "slide2exit")
                 .to(OBJ_lowerLegRight, {duration: .5, transformOrigin: "72% top", rotation: 0}, "slide2exit")
@@ -142,6 +158,7 @@ function CharacterController() {
 
             // Slide 3
                 .to(character, {translateY: "+=60", duration: .5}, "slide3")
+                .to(shadow, {translateY: "-=60", duration: .5}, "slide3")
                     // Right leg
                 .to(GRP_legRight, {duration: 5, transformOrigin: "0% left", rotation: -40}, "slide3")
                 .to(OBJ_lowerLegRight, {duration: 5, transformOrigin: "30% top", rotation: 60}, "slide3")
@@ -151,14 +168,15 @@ function CharacterController() {
                 .to(OBJ_lowerLegLeft, {duration: 5, transformOrigin: "70% top", rotation: -60}, "slide3")
                 .to(OBJ_shoeLeft, {duration: 5, transformOrigin: "110% center", translateX: "-=15", rotation: 20}, "slide3")
                     // Right arm
-                .to(GRP_armRight, {duration: 5, transformOrigin: "0% center", translateX: "+=1.5", translateY: "-=5.5", rotation: 50}, "slide3")
-                .to(OBJ_forearmRight, {duration: 5, transformOrigin: "50% left", rotation: 90}, "slide3")
+                .to(GRP_armRight, {duration: 5, transformOrigin: "0% center", translateX: "+=1.5", translateY: "-=5.5", rotation: 40}, "slide3")
+                .to(OBJ_forearmRight, {duration: 5, transformOrigin: "50% left", rotation: 100}, "slide3")
                     // Left arm
-                .to(GRP_armLeft, {duration: 5, transformOrigin: "100% center", translateY: "-=5.5", rotation: -60}, "slide3")
-                .to(OBJ_forearmLeft, {duration: 5, transformOrigin: "50% right", rotation: -90}, "slide3")
+                .to(GRP_armLeft, {duration: 5, transformOrigin: "100% center", translateY: "-=5.5", rotation: -50}, "slide3")
+                .to(OBJ_forearmLeft, {duration: 5, transformOrigin: "50% right", rotation: -100}, "slide3")
                 
                 // Exit
                 .to(character, {translateY: "-=60", duration: .5}, "slide3exit")
+                .to(shadow, {translateY: "+=1000", duration: .5}, "slide3exit")
                     // Right leg
                 .to(GRP_legRight, {duration: .5, transformOrigin: "100% top", translateX: "+=16", rotation: 0}, "slide3exit")
                 .to(OBJ_lowerLegRight, {duration: .5, transformOrigin: "24% top", rotation: 0}, "slide3exit")
@@ -202,40 +220,26 @@ function CharacterController() {
                 .to(GRP_armLeft, {duration: 5, transformOrigin: "100% top", translateX: "+=21.5", translateY: "+=10.5", rotation: 60}, "slide5")
                 .to(OBJ_forearmLeft, {duration: 5, transformOrigin: "50% right", rotation: 20}, "slide5")
                 // Exit
-                .to(character, {translateY: "+=1000", duration: .5}, "slide5exit")
+                .to(character, {translateY: "+=0", duration: .5}, "slide5exit")
             // Slide 6
-                .to(character, {translateY: "-=300", translateX: "+=45%", duration: 5}, "slide6")
+                //.to(character, {translateY: "-=800", translateX: "+=50%", duration: 5}, "slide6")
                 // Left arm
-                .to(GRP_armLeft, {duration: 5, transformOrigin: "100% center", translateX: "-=24.5", translateY: "-=15.5", rotation: -30}, "slide6")
+                //.to(GRP_armLeft, {duration: 5, transformOrigin: "100% center", translateX: "-=24.5", translateY: "-=15.5", rotation: -30}, "slide6")
                 // Expression change
-                .to(OBJ_eyesOpen, {visibility: "visible"}, "slide6")
-                .to(OBJ_eyesClosed, {visibility: "hidden"}, "slide6")
-                .to(OBJ_mouthTeeth, {visibility: "visible"}, "slide6")
-                .to(OBJ_mouthWorry, {visibility: "hidden"}, "slide6")
-
-    }
-    /* const blink = () => {
-        var blink = new TimelineLite({repeat: -1});
-        blink
-        .to(OBJ_eyesOpen,  {duration: 3, visibility: "visible"}, 0)
-        .to(OBJ_eyesOpen, {duration: .1, delay: 3, visibility: "hidden"}, 0)
-        .to(OBJ_eyesClosed, {duration: .1, delay: 3, visibility: "visible"}, 0)
-        .to(OBJ_eyesOpen, {delay: 3.1, visibility: "visible"}, 0)
-        .to(OBJ_eyesClosed, {delay: 3.1, visibility: "hidden"}, 0)
-    }
-    const waveAnimation = () => {
-        gsap.to(GRP_armRight, {rotation: 10, transformOrigin: "0% center", delay: .3, duration: .4})
-        
-        wave.to(OBJ_forearmRight, {rotation: -70, transformOrigin: "50% left"}, 0)
-    } */
-
-    useEffect(() => {
-        animator()  
-    })
+                //.to(OBJ_eyesOpen, {visibility: "visible"}, "slide6")
+                //.to(OBJ_eyesClosed, {visibility: "hidden"}, "slide6")
+                //.to(OBJ_mouthTeeth, {visibility: "visible"}, "slide6")
+                //.to(OBJ_mouthWorry, {visibility: "hidden"}, "slide6")
+        return () => {
+            //gsap.kill()
+            characterAnim.pause()
+        }
+    }, [character])
 
     return (
             <div style={{width: "592px", height: "780px", position: "relative", left: "50%", right: "50%", transform: "translate(-50%, -50%)", marginTop: "50vh"}}>
-                <svg className="character" ref={el => {character = el}} xmlns="http://www.w3.org/2000/svg" width="592" height="780" viewBox="0 0 592 780" style={{overflow: "hidden", zIndex: "-1", pointerEvents: "none"}}>
+                <svg className="character" ref={el => {character = el}} xmlns="http://www.w3.org/2000/svg" width="592" height="840" viewBox="0 0 592 840" style={{overflow: "hidden", zIndex: "-1", pointerEvents: "none"}}>
+                <ellipse ref={el => {shadow = el}} id="shadow" data-name="shadow" cx="25" cy="25" rx="150" ry="25" transform="translate(266 760)" fill="rgba(33,33,33,0.5)"/>
                 <g id="LowerBody" transform="translate(-4 -12)">
                         <rect id="Pelvis" width="145" height="40" transform="translate(228 380)" fill="#757c98"/>
                         <g ref={el => {GRP_legRight = el}} id="LegRight">
@@ -243,19 +247,19 @@ function CharacterController() {
                                 <g ref={el => {OBJ_shoeRight = el}} id="ShoeRight">
                                     <g id="AnkleRight">
                                         <rect id="Ankle-2" data-name="Ankle" width="30" height="30" transform="translate(333 720)" fill="#343434"/>
-                                        <g id="Eyelet1" transform="translate(357 726)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet1" transform="translate(357 726)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
-                                        <g id="Eyelet2" transform="translate(357 732)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet2" transform="translate(357 732)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
-                                        <g id="Eyelet3" transform="translate(357 738)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet3" transform="translate(357 738)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
-                                        <g id="Eyelet4" transform="translate(357 744)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet4" transform="translate(357 744)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
@@ -280,19 +284,19 @@ function CharacterController() {
                                 <g  ref={el => {OBJ_shoeLeft = el}} id="ShoeLeft">
                                     <g id="AnkleLeft" data-name="Ankle">
                                         <rect id="Ankle-4" data-name="Ankle" width="30" height="30" transform="translate(239 720)" fill="#343434"/>
-                                        <g id="Eyelet1-2" data-name="Eyelet1" transform="translate(241 726)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet1-2" data-name="Eyelet1" transform="translate(241 726)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
-                                        <g id="Eyelet2-2" data-name="Eyelet2" transform="translate(241 732)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet2-2" data-name="Eyelet2" transform="translate(241 732)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
-                                        <g id="Eyelet3-2" data-name="Eyelet3" transform="translate(241 738)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet3-2" data-name="Eyelet3" transform="translate(241 738)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
-                                        <g id="Eyelet4-2" data-name="Eyelet4" transform="translate(241 744)" fill="#fff" stroke="#707070" stroke-width="1">
+                                        <g id="Eyelet4-2" data-name="Eyelet4" transform="translate(241 744)" fill="#fff" stroke="#707070" strokeWidth="1">
                                         <circle cx="2" cy="2" r="2" stroke="none"/>
                                         <circle cx="2" cy="2" r="1.5" fill="none"/>
                                         </g>
@@ -341,32 +345,32 @@ function CharacterController() {
                             <path id="Head-2" data-name="Head" d="M0,0H140a0,0,0,0,1,0,0V100a60,60,0,0,1-60,60H60A60,60,0,0,1,0,100V0A0,0,0,0,1,0,0Z" transform="translate(147 27)" fill="#fbede4"/>
                             <rect id="Ears" width="160" height="30" rx="15" transform="translate(137 100)" fill="#fbede4"/>
                             <g id="Mouths">
-                                <path ref={el => {OBJ_mouthSmile = el}} id="Smile" d="M204.671,162.554,218.1,175.982l13.428-13.428" transform="translate(-1.1 -2)" fill="none" stroke="#707070" stroke-width="3"/>
-                                <path ref={el => {OBJ_mouthWorry = el}} id="Worry" d="M140.625,169.456l6.714,13.428,6.714-13.428,6.714,13.428,6.714-13.428" transform="translate(62.946 -5.902)" fill="none" stroke="#707070" stroke-width="3"/>
-                                <path ref={el => {OBJ_mouthOpen = el}} id="Open" d="M208.243,173.982l13.724-13.724,13.724,13.724H208.243Z" transform="translate(-4.967)" fill="#c49292" stroke="#707070" stroke-width="2"/>
-                                <path ref={el => {OBJ_mouthTeeth = el}} id="Teeth" d="M140.566,161.8h26.857l-5.656,13.428H146.222Z" transform="translate(63.006 -1.248)" fill="#fff" stroke="#707070" stroke-width="3"/>
+                                <path ref={el => {OBJ_mouthSmile = el}} id="Smile" d="M204.671,162.554,218.1,175.982l13.428-13.428" transform="translate(-1.1 -2)" fill="none" stroke="#707070" strokeWidth="3"/>
+                                <path ref={el => {OBJ_mouthWorry = el}} id="Worry" d="M140.625,169.456l6.714,13.428,6.714-13.428,6.714,13.428,6.714-13.428" transform="translate(62.946 -5.902)" fill="none" stroke="#707070" strokeWidth="3"/>
+                                <path ref={el => {OBJ_mouthOpen = el}} id="Open" d="M208.243,173.982l13.724-13.724,13.724,13.724H208.243Z" transform="translate(-4.967)" fill="#c49292" stroke="#707070" strokeWidth="2"/>
+                                <path ref={el => {OBJ_mouthTeeth = el}} id="Teeth" d="M140.566,161.8h26.857l-5.656,13.428H146.222Z" transform="translate(63.006 -1.248)" fill="#fff" stroke="#707070" strokeWidth="3"/>
                             </g>
                             <rect id="Nose" width="24" height="40" transform="translate(205 107)" fill="#efb1b1"/>
                             <g id="Eyes">
                                 <g id="EyesOpen" ref={el => {OBJ_eyesOpen = el}}>
                                     <g id="EyeLeft" transform="translate(-83 -1)">
                                     <path id="EyeWhites" d="M111.3,137.788l-9.249-14.682,9.249-15.318h15.671l5.08,5.809-2.194,16.578Z" transform="translate(143 -9)" fill="#fff"/>
-                                    <path id="EyeLine" d="M111.3,137.788l-9.249-14.682,9.249-15.318h15.671l5.08,5.809" transform="translate(143 -9)" fill="none" stroke="#707070" stroke-width="3"/>
+                                    <path id="EyeLine" d="M111.3,137.788l-9.249-14.682,9.249-15.318h15.671l5.08,5.809" transform="translate(143 -9)" fill="none" stroke="#707070" strokeWidth="3"/>
                                     <circle id="Pupil" cx="10" cy="10" r="10" transform="translate(253 104)" fill="#a0c5f4"/>
                                     </g>
                                     <g id="EyeRight" transform="translate(241.954 97.788)">
                                     <path id="EyeWhites-2" data-name="EyeWhites" d="M122.5,137.788l9.249-14.682L122.5,107.788H107.126l-5.08,5.809,2.194,16.578Z" transform="translate(-102.046 -107.788)" fill="#fff"/>
-                                    <path id="EyeLine-2" data-name="EyeLine" d="M122.5,137.788l9.249-14.682L122.5,107.788H107.126l-5.08,5.809" transform="translate(-102.046 -107.788)" fill="none" stroke="#707070" stroke-width="3"/>
+                                    <path id="EyeLine-2" data-name="EyeLine" d="M122.5,137.788l9.249-14.682L122.5,107.788H107.126l-5.08,5.809" transform="translate(-102.046 -107.788)" fill="none" stroke="#707070" strokeWidth="3"/>
                                     <circle id="Pupil-2" data-name="Pupil" cx="10" cy="10" r="10" transform="translate(2.046 5.212)" fill="#a0c5f4"/>
                                     </g>
                                 </g>
                                 <g id="EyesClosed" ref={el => {OBJ_eyesClosed=el}}>
-                                    <path id="EyeLineLeft" d="M192.693,98.545l-30.647,15,30.647,15" transform="translate(79.585 -0.545)" fill="none" stroke="#707070" stroke-width="3"/>
-                                    <path id="EyeLineLeft-2" data-name="EyeLineLeft" d="M162.046,98.545l30.647,15-30.647,15" transform="translate(-0.324 -0.757)" fill="none" stroke="#707070" stroke-width="3"/>
+                                    <path id="EyeLineLeft" d="M192.693,98.545l-30.647,15,30.647,15" transform="translate(79.585 -0.545)" fill="none" stroke="#707070" strokeWidth="3"/>
+                                    <path id="EyeLineLeft-2" data-name="EyeLineLeft" d="M162.046,98.545l30.647,15-30.647,15" transform="translate(-0.324 -0.757)" fill="none" stroke="#707070" strokeWidth="3"/>
                                 </g>
                                 <g id="EyesHappy" ref={el => {OBJ_eyesHappy = el}}>
-                                    <path id="EyeLineLeft-3" data-name="EyeLineLeft" d="M192.693,98.545l-30.647,15,30.647,15" transform="translate(370.499 -64.37) rotate(90)" fill="none" stroke="#707070" stroke-width="3"/>
-                                    <path id="EyeLineLeft-4" data-name="EyeLineLeft" d="M162.046,98.545l30.647,15-30.647,15" transform="translate(63.501 290.157) rotate(-90)" fill="none" stroke="#707070" stroke-width="3"/>
+                                    <path id="EyeLineLeft-3" data-name="EyeLineLeft" d="M192.693,98.545l-30.647,15,30.647,15" transform="translate(370.499 -64.37) rotate(90)" fill="none" stroke="#707070" strokeWidth="3"/>
+                                    <path id="EyeLineLeft-4" data-name="EyeLineLeft" d="M162.046,98.545l30.647,15-30.647,15" transform="translate(63.501 290.157) rotate(-90)" fill="none" stroke="#707070" strokeWidth="3"/>
                                 </g>
                             </g>
                             <g id="Hat">
