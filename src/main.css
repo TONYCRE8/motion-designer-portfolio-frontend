@@ -2,7 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    @font-face {
+        font-family: 'inter';
+        src: url(./fonts/Inter.ttf) format('ttf')
+    }
+    p, small, label {
+        @apply font-inter-medium;
+        @apply text-gray-800;
+    }
+    h1 {
+        @apply font-inter-black;
+        @apply text-gray-800;
+        @apply uppercase;
+    }
+    h2 {
+        @apply font-inter-extrabold;
+        @apply text-gray-800;
+    }
+    h3 {
+        @apply font-inter-semibold;
+        @apply text-gray-800;
+    }
+    a {
+        @apply no-underline
+    }
+}
+
 @layer utilities {
+    .page {
+        height: 100%;
+        max-width: 100%;
+    }
+    .fade-enter {
+        opacity: 0;
+    }
+    .fade-enter-active{
+        opacity: 1;
+        transition: opacity 1000ms ease-in;
+    }
+    .fade-exit {
+        opacity: 1;
+    }
+    .fade-exit-active {
+        opacity: 0;
+        transition: opacity 1000ms ease-out;
+    }
     .sections {
         width: 100%;
         height: 100vh;
@@ -30,6 +75,29 @@
     }
     .character {
         transform: scale(1, 1)
+    }
+    .font-inter-medium {
+        font-family: 'inter';
+        font-weight: 400;
+    }
+    .font-inter-semibold {
+        font-family: 'inter';
+        font-weight: 700;
+    }
+    .font-inter-extrabold {
+        font-family: 'inter';
+        font-weight: 800;
+    }
+    .font-inter-black {
+        font-family: 'inter';
+        font-weight: 900;
+    }
+    /*code block*/
+    pre code {
+        display: block;
+        background: #333333;
+        padding: 4px;
+        color: white;
     }
     @media only screen and (max-width: 720px) {
         .character {
