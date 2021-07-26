@@ -15,7 +15,7 @@ function Home() {
     let fullblock = useRef(null)
 
     let block_dev = useRef(null)
-    let block_mo = useRef(null)
+    // let block_mo = useRef(null)
     let block_des = useRef(null)
 
     let blogblock = useRef(null)
@@ -63,13 +63,13 @@ function Home() {
         //.add("section6", 50)
 
         slide_anim
-          .to([fullblock, block_des, block_dev, block_mo], {duration: 5, position: "absolute", top: 0, translateY: -2000}, "section1")
+          .to([fullblock, block_des, block_dev/* , block_mo */], {duration: 5, position: "absolute", top: 0, translateY: -2000}, "section1")
           .to(fullblock, {duration: 5, translateY: 0}, "section2")
           .to(fullblock, {duration: 5, translateY: -2000}, "section3")
-          .to(block_mo, {delay: 1, duration: 1, rotation: 15, translateX: 10, translateY: "31vh"}, "section3")
+          //.to(block_mo, {delay: 1, duration: 1, rotation: 15, translateX: 10, translateY: "31vh"}, "section3")
           .to(block_dev, {delay: 2, duration: 2, rotation: -58, translateX: -30, translateY: "41vh"}, "section3")
           .to(block_des, {delay: 3, duration: 3, rotation: 38, translateX: 40, translateY: "41vh"}, "section3")
-          .to([block_des, block_dev, block_mo], {duration: 5, translateY: 2000}, "section4")
+          .to([block_des, block_dev/* ,  block_mo */], {duration: 5, translateY: 2000}, "section4")
           .to(blogblock, {duration: 5, translateX: 1000}, "section5")
           //.to(contactblock, {duration: 5, translateY: -1000}, "section6")
         return () => {
@@ -111,9 +111,9 @@ function Home() {
                   <p className="ml-4 mt-4 font-inter-extrabold">Develop- ment</p>
                 </div>
               </Link>
-              <div ref={el => {block_mo = el}} className="w-32 h-32 bg-purple-200 flex justify-start text-left uppercase text-l">
+              {/* <div ref={el => {block_mo = el}} className="w-32 h-32 bg-purple-200 flex justify-start text-left uppercase text-l">
                 <p className="ml-4 mt-4 font-inter-extrabold">Motion</p>
-              </div>
+              </div> */}
             </div>
           </section>
           <section className="section" id="section4">
