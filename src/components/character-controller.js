@@ -52,8 +52,13 @@ function CharacterController() {
 
     // Animation hellfire
 
-    var wave = new TimelineLite({delay: .5, duration: .3, repeat: -1, yoyo: true})
-    /* const blink = () => {
+    /* var wave = new TimelineLite({delay: .5, duration: .3, repeat: -1, yoyo: true})
+    const waveAnimation = () => {
+        gsap.to(GRP_armRight, {rotation: 10, transformOrigin: "0% center", delay: .3, duration: .4})
+        
+        wave.to(OBJ_forearmRight, {rotation: -70, transformOrigin: "50% left"}, 0)
+    } */
+/*     const blink = () => {
         var blink = new TimelineLite({repeat: -1});
         blink
         .to(OBJ_eyesOpen,  {duration: 3, visibility: "visible"}, 0)
@@ -61,11 +66,6 @@ function CharacterController() {
         .to(OBJ_eyesClosed, {duration: .1, delay: 3, visibility: "visible"}, 0)
         .to(OBJ_eyesOpen, {delay: 3.1, visibility: "visible"}, 0)
         .to(OBJ_eyesClosed, {delay: 3.1, visibility: "hidden"}, 0)
-    }
-    const waveAnimation = () => {
-        gsap.to(GRP_armRight, {rotation: 10, transformOrigin: "0% center", delay: .3, duration: .4})
-        
-        wave.to(OBJ_forearmRight, {rotation: -70, transformOrigin: "50% left"}, 0)
     } */
 
     useLayoutEffect(() => {
@@ -91,7 +91,6 @@ function CharacterController() {
             .add("slide4exit", 28.2)
             .add("slide5", 30)
             .add("slide5exit", 38.2)
-            //.add("slide6", 40)
 
         // remove all unessential object visibility
         gsap.to([OBJ_eyesClosed, OBJ_eyesHappy, OBJ_mouthOpen, OBJ_mouthTeeth, OBJ_mouthWorry], {duration: 0, css: {visibility: "hidden"}})
