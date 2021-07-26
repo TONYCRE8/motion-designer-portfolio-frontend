@@ -33,7 +33,7 @@ function BlogArticle() {
                     pathSlug={`blog/${blog.slug}`}
                 />
                 <div className="my-12">
-                    <img className="w-full" src={`http://localhost:1337${blog.thumbnail.formats.small.url}`} alt={blog.thumbnail.alternativeText}/>
+                    <img className="w-full" src={`${process.env.REACT_APP_API_URL}${blog.thumbnail.formats.small.url}`} alt={blog.thumbnail.alternativeText}/>
                     <h1 className="text-4xl mt-2">{blog.title}</h1>
                     <small>{blog.date}</small>
                     <hr className="border-1 border-purple-300 w-full"></hr>
