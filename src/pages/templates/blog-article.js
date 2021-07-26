@@ -20,7 +20,7 @@ function BlogArticle() {
     hljs.registerLanguage('javascript', javascript)
 
     const getMarkdownText = (data) => {
-        var markup = marked(data, {sanitize: true, baseUrl: 'http://localhost:1337/'})
+        var markup = marked(data, {sanitize: true, baseUrl: `${process.env.REACT_APP_API_URL}`})
         return{ __html: markup}
     }
     return (
