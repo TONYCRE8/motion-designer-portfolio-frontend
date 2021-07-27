@@ -94,7 +94,7 @@ function Home() {
           </section>
           <section className="section" id="section2">
             <div className="section-inner">
-              <div ref={el => {fullblock = el}} className="w-full h-72 bg-purple-200 relative flex justify-center items-center">
+              <div ref={el => {fullblock = el}} className="w-full md:h-72 h-44 bg-purple-200 relative flex justify-center items-center">
                   <p className="uppercase font-inter-extrabold text-4xl">Motion Designer</p>
               </div>
             </div>
@@ -102,13 +102,13 @@ function Home() {
           <section className="section" id="section3">
             <div className="section-inner">
               <Link ref={el => {block_des = el}} to="/design">
-                <div className="w-32 h-32 bg-purple-200 flex justify-end text-left uppercase text-l">
-                  <p className="mr-4 mt-4 font-inter-extrabold">Design</p>
+                <div className="md:w-32 md:h-32 w-24 h-24 bg-purple-200 flex justify-end text-left uppercase text-l">
+                  <p className="md:mr-4 md:mt-4 mr-1 mt-1 font-inter-extrabold">Design</p>
                 </div>
               </Link>
               <Link ref={el => {block_dev = el}} to="/development">
-                <div className="w-32 h-32 bg-purple-200 flex justify-start text-left uppercase text-l">
-                  <p className="ml-4 mt-4 font-inter-extrabold">Develop- ment</p>
+                <div className="md:w-32 md:h-32 w-24 h-24 bg-purple-200 flex justify-start text-left uppercase text-l">
+                  <p className="md:ml-4 md:mt-4 ml-1 mt-1 font-inter-extrabold">Develop- ment</p>
                 </div>
               </Link>
               {/* <div ref={el => {block_mo = el}} className="w-32 h-32 bg-purple-200 flex justify-start text-left uppercase text-l">
@@ -118,15 +118,15 @@ function Home() {
           </section>
           <section className="section" id="section4">
           <div className="section-inner">
-            <div className="absolute right-0 w-2/5 h-1/4 bg-purple-200" ref={el => {blogblock = el}}>
-              <h2 className="font-inter-medium text-lg -mt-6">Latest Blog article!</h2>
+            <div className="absolute right-0 md:w-2/5 md:h-1/4 bg-purple-200" ref={el => {blogblock = el}}>
+              <h2 className="font-inter-medium text-lg -mt-6 md:text-left text-center">Latest Blog article!</h2>
               <BlogLatest />
             </div>
           </div>
           </section>
           <section className="section" id="section5">
             <div className="section-inner">
-              <div className="w-1/3 max-w-md h-42 bg-gray-800 -mt-24" ref={el => {contactblock = el}}><Form /></div>
+              <div className="md:w-1/3 w-5/6 md:max-w-md h-42 bg-gray-800 md:-mt-24 mt-36" ref={el => {contactblock = el}}><Form /></div>
             </div>
           </section>
       </div>

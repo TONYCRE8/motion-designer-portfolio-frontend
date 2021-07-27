@@ -12,7 +12,7 @@ function DevelopmentProject() {
     return (
         <div className="flex justify-center flex-col items-center">
             {data.map(project => (
-                <div key={project.slug} className="max-w-xl">
+                <div key={project.slug} className="md:w-1/2 w-5/6 mt-16 max-w-xl">
                     <SEO 
                         title={project.title}
                         description={project.description}

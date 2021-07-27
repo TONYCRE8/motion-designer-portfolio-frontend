@@ -39,18 +39,18 @@ function Navigation() {
         </div>
         <div ref={el => {nav = el}} className={menuActive ? "active nav" : "nav"}>
             <div onClick={menuToggle} ref={el => {navClose = el}} className="hidden scroll-container bg-white z-50 cursor-pointer">
-                <marquee className="scroll text-9xl font-inter-black text-gray-800 uppercase select-none" direction="right" scrollamount="30">close menu</marquee>
+                <marquee className="scroll md:text-9xl text-5xl font-inter-black text-gray-800 uppercase select-none" direction="right" scrollamount="30">close menu</marquee>
             </div>
             <div ref={el => {navContent = el}} className="nav-content bg-gray-800">
-                <div className="nav-inner flex flex-row">
-                    <div className="text-right flex-col flex w-full text-4xl select-none">
-                        <NavLink exact activeClassName="text-purple-300" className="font-inter-semibold text-white -mr-20 my-4 border-gray-400 border-b-2 border-opacity-0 hover:-mr-24 hover:border-opacity-100 transition-all duration-150" to="/" onClick={menuToggle}>Home</NavLink>
-                        <NavLink activeClassName="text-purple-300" className="font-inter-semibold text-white -mr-12 my-4 border-gray-400 border-b-2 border-opacity-0 hover:-mr-16 hover:border-opacity-100 transition-all duration-150" to="/blog" onClick={menuToggle}>Blog</NavLink>
-                        <NavLink activeClassName="text-purple-300" className="font-inter-semibold text-white -mr-6 my-4 border-gray-400 border-b-2 border-opacity-0 hover:-mr-10 hover:border-opacity-100 transition-all duration-150" to="/development" onClick={menuToggle}>Development</NavLink>
-                        <NavLink activeClassName="text-purple-300" className="font-inter-semibold text-white  my-4 border-gray-400 border-b-2 border-opacity-0 hover:-mr-4 hover:border-opacity-100 transition-all duration-150" to="/design" onClick={menuToggle}>Design</NavLink>
+                <div className="nav-inner flex flex-row w-screen">
+                    <div className="text-right flex-col flex w-full md:text-4xl text-2xl select-none">
+                        <NavLink exact activeClassName="text-purple-300" className="font-inter-semibold text-white md:-mr-20 -mr-10 md:my-4 my-2 border-gray-400 border-b-2 border-opacity-0 md:hover:-mr-24 md:hover:border-opacity-100 transition-all duration-150" to="/" onClick={menuToggle}>Home</NavLink>
+                        <NavLink activeClassName="text-purple-300" className="font-inter-semibold text-white md:-mr-12 -mr-6 md:my-4 my-2 border-gray-400 border-b-2 border-opacity-0 md:hover:-mr-16 md:hover:border-opacity-100 transition-all duration-150" to="/blog" onClick={menuToggle}>Blog</NavLink>
+                        <NavLink activeClassName="text-purple-300" className="font-inter-semibold text-white md:-mr-6 -mr-2 md:my-4 my-2 border-gray-400 border-b-2 border-opacity-0 md:hover:-mr-10 md:hover:border-opacity-100 transition-all duration-150" to="/development" onClick={menuToggle}>Development</NavLink>
+                        <NavLink activeClassName="text-purple-300" className="font-inter-semibold text-white  md:my-4 my-2 border-gray-400 border-b-2 border-opacity-0 md:hover:-mr-4 md:hover:border-opacity-100 transition-all duration-150" to="/design" onClick={menuToggle}>Design</NavLink>
                     </div>
-                    <p className="text-purple-300 slash ml-20 select-none">/</p>
-                    <p className="text-purple-300 text-4xl mt-12 select-none">&gt;</p>
+                    <p className="text-purple-300 slash md:ml-20 select-none">/</p>
+                    <p className="text-purple-300 md:text-4xl text-3xl mt-12 md:pr-0 pr-2 select-none">&gt;</p>
                 </div>
                 <div className="font-inter-mediumfont-inter-medium h-24 w-full flex justify-center center py-4">
                     <p className="text-white ">Built by @TONYCRE8</p>

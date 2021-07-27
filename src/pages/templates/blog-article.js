@@ -26,13 +26,13 @@ function BlogArticle() {
     return (
     <div className="flex justify-center flex-col items-center">
         {data.map(blog => (
-            <div key={blog.id}>
+            <div key={blog.id} className="md:w-1/2 w-5/6 mt-16">
                 <SEO 
                     title={blog.title}
                     description={blog.description}
                     pathSlug={`blog/${blog.slug}`}
                 />
-                <div className="my-12">
+                <div className="md:my-12 mb-4">
                     <img className="w-full" src={`${process.env.REACT_APP_API_URL}${blog.thumbnail.formats.small.url}`} alt={blog.thumbnail.alternativeText}/>
                     <h1 className="text-4xl mt-2">{blog.title}</h1>
                     <small>{blog.date}</small>
