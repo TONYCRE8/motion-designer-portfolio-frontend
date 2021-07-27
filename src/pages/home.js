@@ -57,8 +57,8 @@ function Home() {
         slide_anim
         .add("section1", 0)
         .add("section2", 10)
-        .add("section3", 20)
-        .add("section4", 30)
+        .add("section3", 18.2)
+        .add("section4", 29.1)
         .add("section5", 40)
         //.add("section6", 50)
 
