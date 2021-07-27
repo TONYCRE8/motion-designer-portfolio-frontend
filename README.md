@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Motion Design Portfolio
+
+A digital portfolio page for TONYCRE8.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Requirements
+
+- Strapi Backend ([see example backend here](https://github.com/TONYCRE8/motion-designer-portfolio-backend))
 
 ## Available Scripts
 
@@ -12,7 +18,8 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You will also see any lint errors in the console.\
+Due to GSAP, you may need to manually reload the page if you tamper with any page stylings or animations.
 
 ### `npm test`
 
