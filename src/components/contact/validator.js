@@ -20,9 +20,11 @@ function validateName(maybeName) {
     return maybeMessage && maybeMessage.length > 149
   }
 
-  export default {
+  const validated = {
     mail: validateMail,
     name: validateName,
     subject: validateSubject,
-    message: validateMessage,
+    message: validateMessage
   }
+
+  export default validated

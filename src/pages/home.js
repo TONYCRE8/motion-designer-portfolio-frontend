@@ -1,5 +1,5 @@
-import { useEffect, useRef, useLayoutEffect } from 'react';
-import gsap, {TimelineLite} from 'gsap'
+import { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {Link} from 'react-router-dom'
 
@@ -19,8 +19,6 @@ function Home() {
     let block_des = useRef(null)
 
     let blogblock = useRef(null)
-
-    let contactblock = useRef(null)
     // That's the one
 
     useLayoutEffect(() => {
@@ -60,7 +58,6 @@ function Home() {
         .add("section3", 18.2)
         .add("section4", 29.1)
         .add("section5", 40)
-        //.add("section6", 50)
 
         slide_anim
           .to([fullblock, block_des, block_dev/* , block_mo */], {duration: 5, position: "absolute", top: 0, translateY: -2000}, "section1")
@@ -71,7 +68,6 @@ function Home() {
           .to(block_des, {delay: 3, duration: 3, rotation: 38, translateX: 40, translateY: "41vh"}, "section3")
           .to([block_des, block_dev/* ,  block_mo */], {duration: 5, translateY: 2000}, "section4")
           .to(blogblock, {duration: 5, translateX: 1000}, "section5")
-          //.to(contactblock, {duration: 5, translateY: -1000}, "section6")
         return () => {
           scrollTrigger.kill()
           slide_anim.kill()
@@ -126,7 +122,7 @@ function Home() {
           </section>
           <section className="section" id="section5">
             <div className="section-inner">
-              <div className="md:w-1/3 w-5/6 md:max-w-md h-42 bg-gray-800 md:-mt-24 mt-36" ref={el => {contactblock = el}}><Form /></div>
+              <div className="md:w-1/3 w-5/6 md:max-w-md h-42 bg-gray-800 md:-mt-24 mt-36"><Form /></div>
             </div>
           </section>
       </div>
@@ -134,30 +130,3 @@ function Home() {
   }
 
 export default Home
-
-/**
- * <section className="section" id="section6">
-          <div className="section-inner">
-            <div className="flex w-full absolute bottom-0 flex-row border-purple-200 border-t-8 border-b-8">
-              <div className="w-full bg-purple-200 z-0 text-gray-700">
-                <p>That's it for now! Did you get all that?</p>
-                <p>If not, here's a very helpful sitemap to get you round the whole place!</p>
-                <ul className="flex flex-col">
-                  <Link to="/design-projects">Design Projects</Link>
-                  <Link to="/development-projects">Development Projects</Link>
-                  <Link to="/blog">Blog articles</Link>
-                </ul>
-              </div>
-              <svg stroke-width="0.501" stroke-linejoin="bevel" fill-rule="evenodd" version="1.1" className="z-10" overflow="visible" width="416.69px" height="416.69px" viewBox="0 0 416.69 416.69">
-              <g id="Document" fill="none" transform="scale(0.7 -0.7)">
-                <g id="Spread" transform="translate(0 -595.277)">
-                <g id="Layer 1">
-                  <path d="M 0,0 L 0,595.277 L 595.277,595.277 L 595.277,0 L 0,0 Z M 496.208,75.864 C 618.627,185.474 629.022,373.79 519.412,496.209 C 409.802,618.628 221.487,629.024 99.068,519.414 C -23.351,409.804 -33.746,221.488 75.864,99.069 C 185.474,-23.35 373.789,-33.746 496.208,75.864 Z" fill="#DDD6FE" stroke="none" stroke-width="0.5" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none" stroke-miterlimit="79.8403193612775"/>
-                </g>
-                </g>
-              </g>
-              </svg>
-            </div>
-          </div>
-          </section>
- */

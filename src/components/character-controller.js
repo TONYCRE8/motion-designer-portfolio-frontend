@@ -1,5 +1,5 @@
 import React, {useRef, useLayoutEffect} from 'react'
-import gsap, {TimelineLite, Power1} from 'gsap'
+import gsap, {Power1} from 'gsap'
 import './../main.css'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
@@ -8,9 +8,6 @@ function CharacterController() {
     // Character object
     let character = useRef(null)
     let shadow = useRef(null)
-
-    // Head group
-    let GRP_head = useRef(null)
     
     // Eye states
     let OBJ_eyesOpen = useRef(null)
@@ -29,12 +26,10 @@ function CharacterController() {
     // Right arm
     let GRP_armRight = useRef(null)
     let OBJ_forearmRight = useRef(null)
-    let OBJ_handRight = useRef(null)
     
     // Left arm
     let GRP_armLeft = useRef(null)
     let OBJ_forearmLeft = useRef(null)
-    let OBJ_handLeft = useRef(null)
 
     // Right leg
 
@@ -51,22 +46,6 @@ function CharacterController() {
     let OBJ_footLeft = useRef(null)
 
     // Animation hellfire
-
-    /* var wave = new TimelineLite({delay: .5, duration: .3, repeat: -1, yoyo: true})
-    const waveAnimation = () => {
-        gsap.to(GRP_armRight, {rotation: 10, transformOrigin: "0% center", delay: .3, duration: .4})
-        
-        wave.to(OBJ_forearmRight, {rotation: -70, transformOrigin: "50% left"}, 0)
-    } */
-/*     const blink = () => {
-        var blink = new TimelineLite({repeat: -1});
-        blink
-        .to(OBJ_eyesOpen,  {duration: 3, visibility: "visible"}, 0)
-        .to(OBJ_eyesOpen, {duration: .1, delay: 3, visibility: "hidden"}, 0)
-        .to(OBJ_eyesClosed, {duration: .1, delay: 3, visibility: "visible"}, 0)
-        .to(OBJ_eyesOpen, {delay: 3.1, visibility: "visible"}, 0)
-        .to(OBJ_eyesClosed, {delay: 3.1, visibility: "hidden"}, 0)
-    } */
 
     useLayoutEffect(() => {
         var characterAnim = gsap.timeline({
@@ -98,7 +77,6 @@ function CharacterController() {
         gsap.to(character, {x: 0, duration: 1})
         gsap.to(GRP_armLeft, {rotation: -80, transformOrigin: "100% center", duration: 0})
         gsap.to(GRP_armRight, {rotation: 80, transformOrigin: "0% center", duration: 0})
-        //waveAnimation()
         
         characterAnim
 
@@ -328,7 +306,7 @@ function CharacterController() {
                             <rect id="UpperArmRight" data-name="ArmRight" width="100" height="33" transform="translate(363 225)" fill="#fdfbf4"/>
                             <g ref={el => {OBJ_forearmRight = el}}>
                                 <path id="ForearmRight" d="M0,0H95a5,5,0,0,1,5,5V28a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(463 225)" fill="#fdfbf4"/>
-                                <rect ref={el => {OBJ_handRight = el}} id="HandRight" width="33" height="33" rx="5" transform="translate(563 225)" fill="#fbede4"/>
+                                <rect id="HandRight" width="33" height="33" rx="5" transform="translate(563 225)" fill="#fbede4"/>
                             </g>
                         </g>
                         <g id="ArmLeft" ref={el => {GRP_armLeft = el}} transform="translate(-83 -1)">
@@ -336,10 +314,10 @@ function CharacterController() {
                             <path id="ElbowLeft" d="M16.5,0A16.5,16.5,0,1,1,0,16.5,16.5,16.5,0,0,1,16.5,0Z" transform="translate(121 225)" fill="#fdfbf4"/>
                             <g ref={el => {OBJ_forearmLeft = el}}>
                             <path id="ForearmLeft" d="M0,0H95a5,5,0,0,1,5,5V28a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(137 258) rotate(180)" fill="#fdfbf4"/>
-                                <rect ref={el => {OBJ_handLeft = el}} id="HandLeft" data-name="Hand" width="33" height="33" rx="5" transform="translate(4 225)" fill="#fbede4"/>
+                                <rect id="HandLeft" data-name="Hand" width="33" height="33" rx="5" transform="translate(4 225)" fill="#fbede4"/>
                             </g>
                         </g>
-                        <g id="Head" ref={el => {GRP_head = el}}>
+                        <g id="Head">
                             <rect id="Neck" width="30" height="14" transform="translate(202 185)" fill="#fbede4"/>
                             <path id="Head-2" data-name="Head" d="M0,0H140a0,0,0,0,1,0,0V100a60,60,0,0,1-60,60H60A60,60,0,0,1,0,100V0A0,0,0,0,1,0,0Z" transform="translate(147 27)" fill="#fbede4"/>
                             <rect id="Ears" width="160" height="30" rx="15" transform="translate(137 100)" fill="#fbede4"/>

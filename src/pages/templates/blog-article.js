@@ -1,5 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
-import axios from 'axios'
+import React from 'react'
 import marked from 'marked'
 
 import hljs from 'highlight.js/lib/core'
@@ -20,7 +19,7 @@ function BlogArticle() {
     hljs.registerLanguage('javascript', javascript)
 
     const getMarkdownText = (data) => {
-        var markup = marked(data, {sanitize: true, baseUrl: `${process.env.REACT_APP_API_URL}`})
+        var markup = marked(data, {baseUrl: `${process.env.REACT_APP_API_URL}`})
         return{ __html: markup}
     }
     return (

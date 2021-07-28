@@ -1,8 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Helmet} from 'react-helmet'
 
 const SEO = ({ title, description, pathSlug, keywords }) => {
-    /* useEffect(() => {
+    /* Need to get this to only remove the first description that React makes, and not the first one.
+    
+      useEffect(() => {
         const description = document.querySelector('meta[name="description"]');
         if (description) {
             description.remove();

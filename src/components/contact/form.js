@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState} from 'react'
 import validate from './validator'
 
 function Form() {
@@ -27,7 +27,7 @@ function Form() {
    
     async function handleSubmit(event) {
       event.preventDefault();
-      const netlifyForm = form.current;
+      const newForm = form.current;
       if(isValidForm) {
         setLoading(true);
      
@@ -35,7 +35,7 @@ function Form() {
           method: 'POST',
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({
-              "form-name": netlifyForm.getAttribute("name"),
+              "form-name": newForm.getAttribute("name"),
               ...pretendState
             }),
           // body: new URLSearchParams({name: name, mail: mail, subject: subject, message: message}).toString()
@@ -45,8 +45,9 @@ function Form() {
     
         setTimeout(() => {
           setLoading(false);
-          setSuccess(false)
-          netlifyForm.reset()
+          setSuccess(!success)
+          console.log(success)
+          newForm.reset()
         }, 5000)
       }
     }

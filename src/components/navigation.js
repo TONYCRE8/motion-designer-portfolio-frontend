@@ -15,14 +15,12 @@ function Navigation() {
 
     const menuToggle = () => {
         if(menuActive === false) {
-            console.log("menu active")
             gsap.to(nav, {duration: 0, scaleX: 1})
             gsap.to(navIcon, {display: 'none'})
             gsap.fromTo([navContent, navClose], {duration: .6, opacity: 0, x: "+1500px"}, {x: 0, opacity: 1, display: 'block'})
             setMenuActive(!menuActive)
         }
         else {
-            console.log("menu unactive")
             gsap.to(navIcon, {display: 'flex'})
             gsap.to([navContent, navClose], {duration: .4, opacity: 0, x: "+1500px"})
             gsap.to(nav, {delay: 0.6, duration: 0, scaleX: 0})
@@ -32,14 +30,14 @@ function Navigation() {
     return (
         <>
         <div>
-            <img src={logo} className="h-16 fixed top-2 left-2" />
+            <img src={logo} className="h-16 fixed top-2 left-2" alt="Logo for TONYCRE8" />
         </div>
         <div onClick={menuToggle} ref={el => {navIcon = el}} className="text-gray-800 z-50 fixed top-4 right-4 text-4xl cursor-pointer">
             <RiMenuFill/>
         </div>
         <div ref={el => {nav = el}} className={menuActive ? "active nav" : "nav"}>
             <div onClick={menuToggle} ref={el => {navClose = el}} className="hidden scroll-container bg-white z-50 cursor-pointer">
-                <marquee className="scroll md:text-9xl text-5xl font-inter-black text-gray-800 uppercase select-none" direction="right" scrollamount="30">close menu</marquee>
+                <div className="scroll text-center md:text-9xl text-5xl font-inter-black text-gray-800 uppercase select-none" direction="right" scrollamount="30">close menu</div>
             </div>
             <div ref={el => {navContent = el}} className="nav-content bg-gray-800">
                 <div className="nav-inner flex flex-row w-screen">

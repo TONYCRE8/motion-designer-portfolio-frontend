@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 export function DATA(query) {
@@ -10,7 +10,7 @@ export function DATA(query) {
             setData(response.data)
         })
         .catch(console.error)
-    }, [])
+    }, [query])
 
     return data
 } 

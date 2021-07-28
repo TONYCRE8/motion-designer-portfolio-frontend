@@ -1,5 +1,4 @@
-import React, {useEffect, useLayoutEffect} from 'react'
-import axios from 'axios'
+import React, {useLayoutEffect} from 'react'
 import { Link } from 'react-router-dom';
 import gsap from 'gsap'
 
@@ -11,7 +10,7 @@ function Development() {
   const data = DATA("development-projects?_sort=date:DESC")
 
   useLayoutEffect(() => {
-    let projects = gsap.utils.toArray(".project")
+    let projects = gsap.utils.toArray(".project") // Gsap target not found??
     gsap.to(projects, {opacity: 1, duration: 1, stagger: {each: .3}})
   })
 

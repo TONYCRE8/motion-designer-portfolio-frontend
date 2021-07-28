@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import {DATA} from '../data-fetch'
 
 function BlogLatest() {
-    // _sort=date:DESC&_limit=1
     const data = DATA("blog-articles?_sort=date:DESC&_limit=1")
     return (
         <>
