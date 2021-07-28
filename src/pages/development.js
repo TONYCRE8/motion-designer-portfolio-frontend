@@ -10,6 +10,9 @@ function Development() {
   const data = DATA("development-projects?_sort=date:DESC")
 
   useLayoutEffect(() => {
+    if (!data.length) {
+      return
+    }
     let projects = gsap.utils.toArray(".project") // Gsap target not found??
     gsap.to(projects, {opacity: 1, duration: 1, stagger: {each: .3}})
   })

@@ -8,9 +8,10 @@ import SEO from '../components/seo'
 function Design() {
   const data = DATA("design-projects?_sort=date:DESC")
 
-  // Could we iterate a useRef on each object and then convert those into an array?
-
   useLayoutEffect(() => {
+    if (!data.length) {
+      return
+    }
     let projects = gsap.utils.toArray(".project")
     gsap.to(projects, {opacity: 1, duration: 1, stagger: {each: .3}})
   })
