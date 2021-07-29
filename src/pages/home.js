@@ -11,6 +11,7 @@ import SEO from '../components/seo'
 function Home() {
   if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger); 
+    ScrollTrigger.config({syncInterval: 999999999});
   }
     let fullblock = useRef(null)
 
