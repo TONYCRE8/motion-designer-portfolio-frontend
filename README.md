@@ -1,8 +1,8 @@
 # Motion Design Portfolio
 
-A digital portfolio page for TONYCRE8.
+My current personal portfolio. Over the years I've made many versions, but this will be my main portfolio page for the foreseeable future, with updates on the content and stylings being applied later on.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project was constructed with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Requirements
 
