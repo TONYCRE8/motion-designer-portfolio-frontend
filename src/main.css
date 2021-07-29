@@ -4,8 +4,20 @@
 
 @layer base {
     @font-face {
-        font-family: 'inter';
-        src: url(./fonts/Inter.ttf) format('ttf')
+        font-family: 'inter-medium';
+        src: url(./fonts/Inter-Medium.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'inter-extrabold';
+        src: url(./fonts/Inter-ExtraBold.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'inter-semibold';
+        src: url(./fonts/Inter-SemiBold.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'inter-black';
+        src: url(./fonts/Inter-Black.woff2) format('woff2');
     }
     p, small, label {
         @apply font-inter-medium;
@@ -77,19 +89,19 @@
         transform: scale(1, 1)
     }
     .font-inter-medium {
-        font-family: 'inter';
+        font-family: 'inter-medium';
         font-weight: 400;
     }
     .font-inter-semibold {
-        font-family: 'inter';
+        font-family: 'inter-semibold';
         font-weight: 700;
     }
     .font-inter-extrabold {
-        font-family: 'inter';
+        font-family: 'inter-extrabold';
         font-weight: 800;
     }
     .font-inter-black {
-        font-family: 'inter';
+        font-family: 'inter-black';
         font-weight: 900;
     }
     /*code block*/
