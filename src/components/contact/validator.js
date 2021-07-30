@@ -2,12 +2,12 @@ function validateName(maybeName) {
     return maybeName && maybeName.length > 1
   }
 
-  function validateMail(maybeMail) {
+  function validateEmail(maybeEmail) {
     return (
-      maybeMail &&
-      maybeMail.length > 5 &&
+      maybeEmail &&
+      maybeEmail.length > 5 &&
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        maybeMail
+        maybeEmail
       )
     )
   }
@@ -21,8 +21,8 @@ function validateName(maybeName) {
   }
 
   const validated = {
-    mail: validateMail,
     name: validateName,
+    email: validateEmail,
     subject: validateSubject,
     message: validateMessage
   }

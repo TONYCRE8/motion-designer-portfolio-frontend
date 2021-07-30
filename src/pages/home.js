@@ -122,8 +122,8 @@ function Home() {
           </div>
           </section>
           <section className="section" id="section5">
-            <div className="section-inner">
-              <div className="md:w-1/3 w-5/6 md:max-w-md h-42 bg-gray-800 md:-mt-24 mt-36"><Form /></div>
+            <div className="section-inner flex-col">
+              <Form />
             </div>
           </section>
       </div>
