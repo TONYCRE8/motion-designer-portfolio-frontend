@@ -1,6 +1,6 @@
 # Motion Design Portfolio
 
-My current personal portfolio. Over the years I've made many versions, but this will be my main portfolio page for the foreseeable future, with updates on the content and stylings being applied later on.
+My current personal portfolio. This will be my main portfolio page for the foreseeable future, with updates on the content and stylings being applied later on.
 
 This Project was constructed with [Create React App](https://github.com/facebook/create-react-app).
 
