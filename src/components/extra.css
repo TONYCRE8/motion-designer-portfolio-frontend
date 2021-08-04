@@ -76,6 +76,10 @@
     font-style: bold;
 }
 
+.content a {
+    color: #c4b5fd;
+}
+
 .content blockquote {
     display: block;
     padding-left: 20px;
