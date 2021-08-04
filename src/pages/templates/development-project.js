@@ -18,7 +18,7 @@ function DevelopmentProject() {
                         description={project.description}
                         pathSlug={`development/${project.slug}`}
                     />
-                    <h1 className="text-4xl my-4">{project.title} - {project.date.slice(0, 4)}</h1>
+                    <h1 className="text-5xl my-4">{project.title} - {project.date.slice(0, 4)}</h1>
                     <p>{project.description}</p>
                     <hr className="my-4 border-1 border-purple-300"></hr>
                     <h2 className="text-2xl">Screencap</h2>

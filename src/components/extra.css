@@ -75,7 +75,10 @@
     font-size: .66rem;
     font-style: bold;
 }
-
+.content p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
 .content a {
     color: #c4b5fd;
 }

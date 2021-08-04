@@ -33,7 +33,7 @@ function BlogArticle() {
                 />
                 <div className="md:my-12 mb-4">
                     <img className="w-full" src={blog.thumbnail.formats.small.url} alt={blog.thumbnail.alternativeText}/>
-                    <h1 className="text-4xl mt-2">{blog.title}</h1>
+                    <h1 className="text-5xl mt-2">{blog.title}</h1>
                     <small>{blog.date}</small>
                     <hr className="border-1 border-purple-300 w-full"></hr>
                 </div>
