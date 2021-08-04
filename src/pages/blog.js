@@ -20,7 +20,7 @@ function Blog() {
                     <h2 className="md:text-3xl text-2xl justify-start">{article.title}</h2>
                     <p className="justify-start">{article.date}</p>
                 </div>
-                <img className="m-2 md:w-1/2 w-full h-full justify-end" src={`${process.env.REACT_APP_API_URL}${article.thumbnail.formats.small.url}`} alt={article.thumbnail.alternativeText}/>
+                <img className="m-2 md:w-1/2 w-full h-full justify-end" src={article.thumbnail.formats.small.url} alt={article.thumbnail.alternativeText}/>
             </Link>
         ))}
     </div>    

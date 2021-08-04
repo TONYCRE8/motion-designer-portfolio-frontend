@@ -23,7 +23,7 @@ function DesignProject() {
                     <p>{project.description}</p>
                     <hr className="my-4 border-1 border-purple-300"></hr>
                     <h2 className="text-2xl">Design</h2>
-                    <img className="h-full w-full" src={`${process.env.REACT_APP_API_URL}${project.thumbnail.formats.large.url}`} alt={project.thumbnail.alternativeText}/>
+                    <img className="h-full w-full" src={project.thumbnail.formats.large.url} alt={project.thumbnail.alternativeText}/>
                 </div>
             ))}
             <button className="w-32 my-12 uppercase bg-gray-800 text-white font-inter-black py-2 rounded-md" onClick={() => history.goBack()}>Back</button>

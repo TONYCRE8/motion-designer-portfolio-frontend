@@ -36,7 +36,7 @@ function Design() {
               <p className="h-2/5 md:text-md text-sm text-white p-2 text-center">{project.description}</p>
             </div>
             <div className="absolute h-full w-full">
-              <img className="h-full w-full object-cover object-top" src={`${process.env.REACT_APP_API_URL}${project.thumbnail.formats.medium.url}`} alt={project.thumbnail.alternativeText}/>
+              <img className="h-full w-full object-cover object-top" src={`${project.thumbnail.formats.medium.url}`} alt={project.thumbnail.alternativeText}/>
             </div>
           </Link>
         ))}
