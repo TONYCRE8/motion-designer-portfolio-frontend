@@ -8,7 +8,7 @@ function BlogLatest() {
         <>
             {data.map(article => (
             <Link to={"/blog/" + article.slug} key={article.id} className="flex justify-center flex-col p-4">
-                <img className="w-2/3 justify-end" src={`${process.env.REACT_APP_API_URL}${article.thumbnail.formats.small.url}`} alt={article.thumbnail.alternativeText}/>
+                <img className="w-2/3 justify-end" src={article.thumbnail.formats.small.url} alt={article.thumbnail.alternativeText}/>
                 <div>
                     <h3 className="justify-start leading-tight text-3xl">{article.title}</h3>
                     <p className="justify-start">{article.date}</p>
