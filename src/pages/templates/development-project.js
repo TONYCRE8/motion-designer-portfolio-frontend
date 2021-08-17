@@ -8,7 +8,7 @@ function DevelopmentProject() {
     let history = useHistory()
     const { slug } = useParams();
 
-    let data = DATA(`design-projects?slug=${slug}`)
+    let data = DATA(`development-projects?slug=${slug}`)
     return (
         <div className="flex justify-center flex-col items-center">
             {data.map(project => (
